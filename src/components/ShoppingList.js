@@ -1,5 +1,7 @@
 import { plantList } from '../datas/plantList'
 import '../styles/ShoppingList.css'
+import CareScale from './CareScale'
+
 
 function ShoppingList() {
 
@@ -7,6 +9,7 @@ function ShoppingList() {
         acc.includes(plant.category) ? acc : acc.concat(plant.category),
         []
     )
+
 
     return (
         <div>
@@ -20,7 +23,9 @@ function ShoppingList() {
                     <li key={plant.id} className='lmj-plant-item'>
                         {plant.name}
                         {plant.isBestSale && <span>🔥</span>}
-                        {plant.isSpecialOffer && <span className='lmj-sales'>Solde !</span>}</li>
+                        {plant.isSpecialOffer && <span className='lmj-sales'>Solde !</span>}
+                        <CareScale needLight={plant.light} />
+                    </li>
                 ))}
             </ul>
         </div>
